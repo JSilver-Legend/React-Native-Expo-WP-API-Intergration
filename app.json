@@ -1,0 +1,36 @@
+{
+  "expo": {
+    "name": "ResembId",
+    "slug": "resembid",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/Icon-App-1024x1024.png",
+    "splash": {
+      "image": "./assets/resembid-official-logo.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#0379AB"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "requireFullScreen": true,
+      "bundleIdentifier": "org.resembid",
+      "buildNumber": "1.0.0"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/Icon-App-1024x1024.png",
+        "backgroundColor": "#0379AB"
+      },
+      "package": "org.resembid",
+      "versionCode": 1
+    },
+    "description": "",
+    "owner": "parida01"
+  }
+}
