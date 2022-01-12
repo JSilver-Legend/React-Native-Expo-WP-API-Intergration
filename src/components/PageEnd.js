@@ -9,6 +9,7 @@ import {
 import * as Font from 'expo-font';
 import PushNotifications from '../parts/PushNotifications';
 import AppLoading from "expo-app-loading";
+// import SwitchToggle from "react-native-switch-toggle";
 
 class PageNext extends React.Component {
     constructor(props) {
@@ -97,7 +98,7 @@ class PageNext extends React.Component {
                 style={styles.container}
             >
                 <Text style={styles.welcome}>
-                    For which topics do you want to receive notifications?
+                    {"For which topics do you\nwant to receive\nnotifications?"}
                 </Text>
                 <View style={styles.optionsBox}>
                     <View style={styles.optionsRow}>
@@ -108,14 +109,39 @@ class PageNext extends React.Component {
                         <Text style = {styles.name}>
                             Resilience
                         </Text>
-                        <Switch
+                        {/* <View style = {styles.switch}>
+                            <SwitchToggle
+                                containerStyle={{
+                                    width: 50,
+                                    height: 30,
+                                    borderRadius: 25,
+                                    padding: 5,
+                                }}
+                                circleStyle={{
+                                    width: 24,
+                                    height: 24,
+                                    borderRadius: 19,
+                                    backgroundColor: "#0063AF",
+                                }}
+                                // switchOn={this.state.sustainable ? true : false}
+                                // onPress={(_) => this.setState({ sustainable: !this.state.sustainable })}
+                                // circleColorOff='#0063AF'
+                                // circleColorOn='#ffffff'
+                                // backgroundColorOn='#1E2459'
+                                // backgroundColorOff='#1E2459'
+                                // duration={190}
+                                // value={this.state.sustainable}
+                                // onValueChange={(value) => this.toggleSwitch(['sustainable', value])}
+                            />
+                        </View> */}
+                        {/* <Switch
                             thumbColor={this.state.resilience?'#FFFFFF':'#0379AB'}
                             ios_backgroundColor="#025578"
                             style = {styles.switch}
                             trackColor = {{false: '#025578', true: '#025578'}}
                             onValueChange={(value) => this.toggleSwitch(['resilience', value])}
                             value = {this.state.resilience}
-                        />
+                        /> */}
                     </View>
                     <View style={styles.optionsRow}>
                         <Image
@@ -125,14 +151,14 @@ class PageNext extends React.Component {
                         <Text style = {styles.name}>
                             Sustainable Energy
                         </Text>
-                        <Switch
+                        {/* <Switch
                             thumbColor={this.state.sustainable?'#FFFFFF':'#0379AB'}
                             ios_backgroundColor="#025578"
                             style = {styles.switch}
                             trackColor = {{false: '#025578', true: '#025578'}}
                             onValueChange={(value) => this.toggleSwitch(['sustainable', value])}
                             value = {this.state.sustainable}
-                        />
+                        /> */}
                     </View>
                     <View style={styles.optionsRow}>
                         <Image
@@ -142,14 +168,14 @@ class PageNext extends React.Component {
                         <Text style = {styles.name}>
                             Marine Biodiversity
                         </Text>
-                        <Switch
+                        {/* <Switch
                             thumbColor={this.state.biodiversity?'#FFFFFF':'#0379AB'}
                             ios_backgroundColor="#025578"
                             style = {styles.switch}
                             trackColor = {{false: '#025578', true: '#025578'}}
                             onValueChange={(value) => this.toggleSwitch(['biodiversity', value])}
                             value = {this.state.biodiversity}
-                        />
+                        /> */}
                     </View>
                     <View style={styles.optionsRow}>
                         <Image
@@ -157,16 +183,16 @@ class PageNext extends React.Component {
                             source = { require ('../../assets/img/COVID-19.png') }
                         />
                         <Text style = {styles.name}>
-                            COVID-19 Resilience Response
+                            {"COVID-19\nResilience Response"}
                         </Text>
-                        <Switch
+                        {/* <Switch
                             thumbColor={this.state.COVID?'#FFFFFF':'#0379AB'}
                             ios_backgroundColor="#025578"
                             style = {styles.switch}
                             trackColor = {{false: '#025578', true: '#025578'}}
                             onValueChange={(value) => this.toggleSwitch(['COVID', value])}
                             value = {this.state.COVID}
-                        />
+                        /> */}
                     </View>
                     <View style={styles.optionsRowLast}>
                         <Image
@@ -176,14 +202,14 @@ class PageNext extends React.Component {
                         <Text style = {styles.name}>
                             Events
                         </Text>
-                        <Switch
+                        {/* <Switch
                             thumbColor={this.state.bi_calendar?'#FFFFFF':'#0379AB'}
                             ios_backgroundColor="#025578"
                             style = {styles.switch}
                             trackColor = {{false: '#025578', true: '#025578'}}
                             onValueChange={(value) => this.toggleSwitch(['bi_calendar', value])}
                             value = {this.state.bi_calendar}
-                        />
+                        /> */}
                     </View>
                 </View>
                 <TouchableOpacity
@@ -204,7 +230,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: 'linear-gradient(180deg, rgba(3, 121, 171, 1) 0%, rgba(2, 85, 120, 1) 100%);',
+        backgroundColor: 'rgba(0,99,175,1)',
         width: wp('100'),
         height: hp('50'),
     },
@@ -252,7 +278,7 @@ const styles = StyleSheet.create({
         top: hp('80.91'),
     },
     touchable_text: {
-        color: '#025578',
+        color: '#1E2459',
         fontSize: 16,
         lineHeight: 22,
         fontWeight: 'bold',
@@ -273,7 +299,7 @@ const styles = StyleSheet.create({
 
     optionsBox: {
         width: 327,
-        backgroundColor: '#02557933',
+        backgroundColor: '#347cb4',
         borderRadius: 16,
         position: 'absolute',
         top: hp('26.72'),
@@ -318,12 +344,13 @@ const styles = StyleSheet.create({
         lineHeight: hp('2.34'),
         color: '#FFFFFF',
         fontWeight: '400',
-        width: hp('14.4'),
+        // width: hp('14.4'),
     },
 
     switch: {
-        marginLeft: 'auto',
-        marginRight: 0,
+        flex: 1, 
+        flexDirection: 'row', 
+        justifyContent: 'flex-end'
     },
 
 })

@@ -38,6 +38,7 @@ class Page extends Component {
             <ImageBackground
                 source={ require ('../../assets/img/Mask-Group.png') }
                 style={styles.container}
+                resizeMode='stretch'
             >
                 <Image style={styles.logo}
                        source = { require ('../../assets/img/resembid-official-logo.png') }
@@ -69,7 +70,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: 'linear-gradient(180deg, rgba(3, 121, 171, 1) 0%, rgba(2, 85, 120, 1) 100%);',
+        backgroundColor: 'rgba(0,99,175,1)',
         width: wp('100'),
         height: hp('50'),
     },
@@ -124,7 +125,7 @@ const styles = StyleSheet.create({
         top: hp('80.91'),
     },
     touchable_text: {
-        color: '#025578',
+        color: '#1E2459',
         fontSize: 16,
         lineHeight: 22,
         fontWeight: 'bold',

@@ -7,7 +7,7 @@
     "icon": "./assets/Icon-App-1024x1024.png",
     "splash": {
       "image": "./assets/resembid-official-logo.png",
-      "resizeMode": "contain",
+      "resizeMode": "cover",
       "backgroundColor": "#0379AB"
     },
     "updates": {
