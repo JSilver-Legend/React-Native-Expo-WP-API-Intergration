@@ -9,6 +9,7 @@ import {
 import * as Font from 'expo-font';
 import AppLoading from "expo-app-loading";
 
+
 class PageNext extends React.Component {
     constructor(props) {
         super(props);
@@ -88,7 +89,7 @@ const styles = StyleSheet.create({
         position: 'absolute'
     },
     logo: {
-        width: 99.7,
+        width: 100,
         height: 99.7,
         top: hp('33.18'),
         position: 'absolute'

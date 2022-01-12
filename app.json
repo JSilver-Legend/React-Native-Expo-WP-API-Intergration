@@ -25,7 +25,7 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/Icon-App-1024x1024.png",
-        "backgroundColor": "#0379AB"
+        "backgroundColor": "#ffffff"
       },
       "package": "org.resembid",
       "versionCode": 1
