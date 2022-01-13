@@ -22,6 +22,7 @@ export default class Resources extends Component {
             post: null,
         }
     }
+
     componentDidMount() {
         this.getResources();
     }
@@ -44,14 +45,16 @@ export default class Resources extends Component {
         if (this.state.isLoading){
             return (
                 <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-                    <ActivityIndicator size="large" color="#3da2c0" />
+                    <ActivityIndicator size="large" color="rgba(0,99,175,1)" />
                 </View>
             )
         } else {
+            var htmlString = "";
+            htmlString = this.state.post.content.rendered.toString();
             return (
                 <View style={styles.conta}>
                     <StatusBar barStyle={'default'}/>
-                    <View style={{height: STATUS_BAR_HEIGHT, backgroundColor: '#0379AB'}}/>
+                    <View style={{height: STATUS_BAR_HEIGHT, backgroundColor: 'rgba(0,99,175,1)'}}/>
                     <TouchableOpacity
                         onPress={() => this.props.navigation.goBack()}
                     >
@@ -66,34 +69,34 @@ export default class Resources extends Component {
                         </View>
                     </TouchableOpacity>
                     <ScrollView style={styles.ScrollView}>
-                        <HTML
-                            source={{ html: this.state.post.content.rendered.replaceAll('/wp-content/', 'https://resembid.org/wp-content/') }}
-                            tagsStyles = {{
-                                img: {
-                                    marginHorizontal: 15,
-                                },
-                                div: {
-                                    minWidth: wp('100')
-                                },
-                                h3:{
-                                    justifyContent: 'center',
-                                    alignItems: 'center',
-                                    textAlign: 'center',
-                                    width: wp('85'),
-                                    fontSize: hp('2.78'),
-                                },
-                                a: {
-                                    paddingHorizontal: wp('1.97'),
-                                    paddingVertical: hp('1.97'),
-                                    backgroundColor: '#f09a3e',
-                                    color: '#ffffff',
-                                    justifyContent: 'center',
-                                    alignItems: 'center',
-                                    textAlign: 'center',
-                                    width: wp('85'),
+                        <HTML 
+                        source={{html: htmlString.split('/wp-content/').join('https://resembid.org/wp-content/')}}
+                        tagsStyles = {{
+                            img: {
+                                marginHorizontal: 15,
+                            },
+                            div: {
+                                minWidth: wp('100')
+                            },
+                            h3:{
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                                textAlign: 'center',
+                                width: wp('85'),
+                                fontSize: hp('2.78'),
+                            },
+                            a: {
+                                paddingHorizontal: wp('1.97'),
+                                paddingVertical: hp('1.97'),
+                                backgroundColor: '#f09a3e',
+                                color: '#ffffff',
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                                textAlign: 'center',
+                                width: wp('85'),
 
-                                }
-                            }}
+                            }
+                        }}
                         />
                     </ScrollView>
                 </View>
@@ -105,10 +108,10 @@ export default class Resources extends Component {
 const STATUS_BAR_HEIGHT = Constants.statusBarHeight;
 
 const styles = StyleSheet.create({
-conta: {
-    height: hp('100'),
-        backgroundColor: 'linear-gradient(180deg, rgba(3, 121, 171, 1) 0%, rgba(2, 85, 120, 1) 100%);',
-},
+    conta: {
+        height: hp('100'),
+        backgroundColor: 'rgba(0,99,175,1)',
+    },
     imagebox: {
         flexDirection: 'row',
         alignItems: 'center',
@@ -139,6 +142,7 @@ conta: {
     },
     ScrollView: {
         flex: 1,
-        minWidth: wp('100')
+        minWidth: wp('100'),
+        backgroundColor: '#ffffff'
     },
 })
