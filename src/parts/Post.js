@@ -84,7 +84,7 @@ export default class Post extends Component {
                                     />
                                 </TouchableOpacity>
                             </View>
-                            <View style={bg.st[this.state.category.slug]}>
+                            <View style={ styles.titleBackground}>
                                 <Image
                                     style={ styles.icon }
                                     source = {icons[this.state.category.slug]}
@@ -157,77 +157,21 @@ const type_icons = {
     tribe_events: require('../../assets/img/text.png')
 }
 
-const bg = {
-    st: {
-        resilience: {
-            flex: 1,
-            flexDirection: "row",
-            justifyContent: 'center',
-            alignItems: 'center',
-            paddingVertical: hp('1.48'),
-            paddingHorizontal: wp('6.4'),
-            backgroundColor: '#8B5737',
-            borderRadius: wp('10.67'),
-            overflow: 'hidden',
-            position: 'absolute',
-            top: hp('26.17')
-        },
-        'sustainable-energy': {
-            flex: 1,
-            flexDirection: "row",
-            justifyContent: 'center',
-            alignItems: 'center',
-            paddingVertical: hp('1.48'),
-            paddingHorizontal: wp('6.4'),
-            backgroundColor: '#64AB46',
-            borderRadius: wp('10.67'),
-            overflow: 'hidden',
-            position: 'absolute',
-            top: hp('26.17')
-        },
-        'marine-biodiversity': {
-            flex: 1,
-            flexDirection: "row",
-            justifyContent: 'center',
-            alignItems: 'center',
-            paddingVertical: hp('1.48'),
-            paddingHorizontal: wp('6.4'),
-            backgroundColor: '#0379AB',
-            borderRadius: wp('10.67'),
-            overflow: 'hidden',
-            position: 'absolute',
-            top: hp('26.17')
-        },
-        'covid-19': {
-            flex: 1,
-            flexDirection: "row",
-            justifyContent: 'center',
-            alignItems: 'center',
-            paddingVertical: hp('1.48'),
-            paddingHorizontal: wp('6.4'),
-            backgroundColor: '#ff5757',
-            borderRadius: wp('10.67'),
-            overflow: 'hidden',
-            position: 'absolute',
-            top: hp('26.17')
-        },
-        events: {
-            flex: 1,
-            flexDirection: "row",
-            justifyContent: 'center',
-            alignItems: 'center',
-            paddingVertical: hp('1.48'),
-            paddingHorizontal: wp('6.4'),
-            backgroundColor: '#F09E48',
-            borderRadius: wp('10.67'),
-            overflow: 'hidden',
-            position: 'absolute',
-            top: hp('26.17')
-        }
-    }
-}
-
 const styles = StyleSheet.create({
+    titleBackground: {
+        flex: 1,
+        flexDirection: "row",
+        justifyContent: 'center',
+        alignItems: 'center',
+        paddingVertical: hp('1.48'),
+        paddingHorizontal: wp('6.4'),
+        backgroundColor: 'rgba(0,99,175,1)',
+        borderRadius: wp('10.67'),
+        overflow: 'hidden',
+        position: 'absolute',
+        top: hp('26.17')
+    },
+
     dateBox: {
         flexDirection: 'row',
         justifyContent: 'center',
