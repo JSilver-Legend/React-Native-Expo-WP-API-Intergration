@@ -221,7 +221,7 @@ export default class Home extends Component {
             return (
                 <LottieView
                     style={{
-                        backgroundColor: 'linear-gradient(180deg, rgba(3, 121, 171, 1) 0%, rgba(2, 85, 120, 1) 100%);'
+                        backgroundColor: 'rgba(0,99,175,1)'
                     }}
                     loop={true}
                     autoPlay

@@ -9,9 +9,9 @@ export default class Home extends Component {
             <View style={styles.container}>
                 <StatusBar
                     barStyle={'default'}
-                    backgroundColor={'#0379AB'}
+                    backgroundColor={'rgba(0,99,175,1)'}
                 />
-                <View style={{ height: STATUS_BAR_HEIGHT, backgroundColor: '#0379AB' }} />
+                <View style={{ height: STATUS_BAR_HEIGHT, backgroundColor: 'rgba(0,99,175,1)' }} />
                 <TouchableOpacity
                     onPress={() => this.props.navigation.goBack()}
                 >
@@ -85,7 +85,7 @@ const STATUS_BAR_HEIGHT = Constants.statusBarHeight;
 const styles = StyleSheet.create({
     container: {
         height: hp('100'),
-        backgroundColor: 'linear-gradient(180deg, rgba(3, 121, 171, 1) 0%, rgba(2, 85, 120, 1) 100%);',
+        backgroundColor: 'rgba(0,99,175,1)',
     },
     imagebox: {
         padding: 16,

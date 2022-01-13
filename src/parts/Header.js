@@ -20,15 +20,25 @@ export default class Header extends Component {
                         source = { require ('../../assets/img/icon/RESEMBID-horizontal.png') }
                     />
                 </View>
-                <TouchableOpacity
-                    style={ styles.userButton}
-                    onPress={()=> this.state.nav.navigate('Infos')}
-                >
-                    <Image
-                        style = { styles.icon }
-                        source = { require ('../../assets/img/icon/account.png') }
-                    />
-                </TouchableOpacity>
+                <View style={styles.buttons}>
+                    <TouchableOpacity
+                        // onPress={() => this.RBSheet.open()}
+                    >
+                        <Image
+                            style = { styles.icon }
+                            source = { require ('../../assets/img/icon/filter.png') }
+                        />
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        style={ styles.userButton}
+                        onPress={()=> this.state.nav.navigate('Infos')}
+                    >
+                        <Image
+                            style = { styles.icon }
+                            source = { require ('../../assets/img/icon/account.png') }
+                        />
+                    </TouchableOpacity>
+                </View>
             </View>
         );
     }
@@ -49,9 +59,9 @@ const styles = StyleSheet.create({
     },
 
     logo: {
-        width: wp('44.51%'),
+        width: 132,
         resizeMode: 'contain',
-        height: 45.03
+        height: 30
     },
 
     userButton: {
@@ -61,7 +71,11 @@ const styles = StyleSheet.create({
     },
 
     icon: {
-        width: 32,
-        height: 32
+        width: 40,
+        height: 40
+    },
+
+    buttons: {
+        flexDirection: 'row',
     }
 });

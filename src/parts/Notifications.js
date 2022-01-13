@@ -13,6 +13,7 @@ import {
 import Constants from "expo-constants";
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import PushNotifications from "./PushNotifications";
+import SwitchToggle from "react-native-switch-toggle";
 
 export default class Notifications extends Component {
     constructor(props) {
@@ -78,10 +79,10 @@ export default class Notifications extends Component {
             <View style={styles.conta}>
                 <StatusBar
                     barStyle={'default'}
-                    backgroundColor={'#0379AB'}
+                    backgroundColor={'rgba(0,99,175,1)'}
                 />
                 <StatusBar barStyle={'default'} />
-                <View style={{ height: STATUS_BAR_HEIGHT, backgroundColor: '#0379AB' }} />
+                <View style={{ height: STATUS_BAR_HEIGHT, backgroundColor: 'rgba(0,99,175,1)' }} />
                 <TouchableOpacity
                     onPress={() => this.props.navigation.goBack()}
                 >
@@ -110,14 +111,31 @@ export default class Notifications extends Component {
                             <Text style = {styles.name}>
                                 Resilience
                             </Text>
-                            <Switch
-                                thumbColor={this.state.resilience?'#FFFFFF':'#0379AB'}
-                                ios_backgroundColor="#025578"
-                                style = {styles.switch}
-                                trackColor = {{false: '#025578', true: '#025578'}}
-                                onValueChange={(value) => this.toggleSwitch(['resilience', value])}
-                                value = {this.state.resilience}
-                            />
+                            <View style = {styles.switch}>
+                                <SwitchToggle
+                                    containerStyle={{
+                                        width: 50,
+                                        height: 30,
+                                        borderRadius: 25,
+                                        padding: 5,
+                                    }}
+                                    circleStyle={{
+                                        width: 24,
+                                        height: 24,
+                                        borderRadius: 19,
+                                        backgroundColor: "#0063AF",
+                                    }}
+                                    switchOn={this.state.resilience ? true : false}
+                                    onPress={(_) => this.setState({ resilience: !this.state.resilience })}
+                                    circleColorOff='#0063AF'
+                                    circleColorOn='#ffffff'
+                                    backgroundColorOn='#1E2459'
+                                    backgroundColorOff='#1E2459'
+                                    duration={150}
+                                    value={this.state.resilience}
+                                    onValueChange={(value) => this.toggleSwitch(['resilience', value])}
+                                />
+                            </View>
                         </View>
                         <View style={styles.optionsRow}>
                             <Image
@@ -127,14 +145,31 @@ export default class Notifications extends Component {
                             <Text style = {styles.name}>
                                 Sustainable Energy
                             </Text>
-                            <Switch
-                                thumbColor={this.state.sustainable?'#FFFFFF':'#0379AB'}
-                                ios_backgroundColor="#025578"
-                                style = {styles.switch}
-                                trackColor = {{false: '#025578', true: '#025578'}}
-                                onValueChange={(value) => this.toggleSwitch(['sustainable', value])}
-                                value = {this.state.sustainable}
-                            />
+                            <View style = {styles.switch}>
+                                <SwitchToggle
+                                    containerStyle={{
+                                        width: 50,
+                                        height: 30,
+                                        borderRadius: 25,
+                                        padding: 5,
+                                    }}
+                                    circleStyle={{
+                                        width: 24,
+                                        height: 24,
+                                        borderRadius: 19,
+                                        backgroundColor: "#0063AF",
+                                    }}
+                                    switchOn={this.state.sustainable ? true : false}
+                                    onPress={(_) => this.setState({ sustainable: !this.state.sustainable })}
+                                    circleColorOff='#0063AF'
+                                    circleColorOn='#ffffff'
+                                    backgroundColorOn='#1E2459'
+                                    backgroundColorOff='#1E2459'
+                                    duration={150}
+                                    value={this.state.sustainable}
+                                    onValueChange={(value) => this.toggleSwitch(['sustainable', value])}
+                                />
+                            </View>
                         </View>
                         <View style={styles.optionsRow}>
                             <Image
@@ -142,16 +177,33 @@ export default class Notifications extends Component {
                                 source = { require ('../../assets/img/biodiversity.png') }
                             />
                             <Text style = {styles.name}>
-                                Marine Biodiversity
+                                {"Marine\nBiodiversity"}
                             </Text>
-                            <Switch
-                                thumbColor={this.state.biodiversity?'#FFFFFF':'#0379AB'}
-                                ios_backgroundColor="#025578"
-                                style = {styles.switch}
-                                trackColor = {{false: '#025578', true: '#025578'}}
-                                onValueChange={(value) => this.toggleSwitch(['biodiversity', value])}
-                                value = {this.state.biodiversity}
-                            />
+                            <View style = {styles.switch}>
+                                <SwitchToggle
+                                    containerStyle={{
+                                        width: 50,
+                                        height: 30,
+                                        borderRadius: 25,
+                                        padding: 5,
+                                    }}
+                                    circleStyle={{
+                                        width: 24,
+                                        height: 24,
+                                        borderRadius: 19,
+                                        backgroundColor: "#0063AF",
+                                    }}
+                                    switchOn={this.state.biodiversity ? true : false}
+                                    onPress={(_) => this.setState({ biodiversity: !this.state.biodiversity })}
+                                    circleColorOff='#0063AF'
+                                    circleColorOn='#ffffff'
+                                    backgroundColorOn='#1E2459'
+                                    backgroundColorOff='#1E2459'
+                                    duration={150}
+                                    value={this.state.biodiversity}
+                                    onValueChange={(value) => this.toggleSwitch(['biodiversity', value])}
+                                />
+                            </View>
                         </View>
                         <View style={styles.optionsRow}>
                             <Image
@@ -159,16 +211,33 @@ export default class Notifications extends Component {
                                 source = { require ('../../assets/img/COVID-19.png') }
                             />
                             <Text style = {styles.name}>
-                                COVID-19 Resilience Response
+                                {"COVID-19\nResilience Response"}
                             </Text>
-                            <Switch
-                                thumbColor={this.state.COVID?'#FFFFFF':'#0379AB'}
-                                ios_backgroundColor="#025578"
-                                style = {styles.switch}
-                                trackColor = {{false: '#025578', true: '#025578'}}
-                                onValueChange={(value) => this.toggleSwitch(['COVID', value])}
-                                value = {this.state.COVID}
-                            />
+                            <View style = {styles.switch}>
+                                <SwitchToggle
+                                    containerStyle={{
+                                        width: 50,
+                                        height: 30,
+                                        borderRadius: 25,
+                                        padding: 5,
+                                    }}
+                                    circleStyle={{
+                                        width: 24,
+                                        height: 24,
+                                        borderRadius: 19,
+                                        backgroundColor: "#0063AF",
+                                    }}
+                                    switchOn={this.state.COVID ? true : false}
+                                    onPress={(_) => this.setState({ COVID: !this.state.COVID })}
+                                    circleColorOff='#0063AF'
+                                    circleColorOn='#ffffff'
+                                    backgroundColorOn='#1E2459'
+                                    backgroundColorOff='#1E2459'
+                                    duration={150}
+                                    value={this.state.COVID}
+                                    onValueChange={(value) => this.toggleSwitch(['COVID', value])}
+                                />
+                            </View>
                         </View>
                         <View style={styles.optionsRowLast}>
                             <Image
@@ -178,14 +247,31 @@ export default class Notifications extends Component {
                             <Text style = {styles.name}>
                                 Events
                             </Text>
-                            <Switch
-                                thumbColor={this.state.bi_calendar?'#FFFFFF':'#0379AB'}
-                                ios_backgroundColor="#025578"
-                                style = {styles.switch}
-                                trackColor = {{false: '#025578', true: '#025578'}}
-                                onValueChange={(value) => this.toggleSwitch(['bi_calendar', value])}
-                                value = {this.state.bi_calendar}
-                            />
+                            <View style = {styles.switch}>
+                                <SwitchToggle
+                                    containerStyle={{
+                                        width: 50,
+                                        height: 30,
+                                        borderRadius: 25,
+                                        padding: 5,
+                                    }}
+                                    circleStyle={{
+                                        width: 24,
+                                        height: 24,
+                                        borderRadius: 19,
+                                        backgroundColor: "#0063AF",
+                                    }}
+                                    switchOn={this.state.bi_calendar ? true : false}
+                                    onPress={(_) => this.setState({ bi_calendar: !this.state.bi_calendar })}
+                                    circleColorOff='#0063AF'
+                                    circleColorOn='#ffffff'
+                                    backgroundColorOn='#1E2459'
+                                    backgroundColorOff='#1E2459'
+                                    duration={150}
+                                    value={this.state.bi_calendar}
+                                    onValueChange={(value) => this.toggleSwitch(['bi_calendar', value])}
+                                />
+                            </View>
                         </View>
                     </View>
                     <TouchableOpacity
@@ -209,7 +295,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: 'linear-gradient(180deg, rgba(3, 121, 171, 1) 0%, rgba(2, 85, 120, 1) 100%);',
+        backgroundColor: 'rgba(0,99,175,1)',
         width: wp('100'),
         height: hp('50'),
     },
@@ -257,7 +343,7 @@ const styles = StyleSheet.create({
         top: hp('67.52'),
     },
     touchable_text: {
-        color: '#025578',
+        color: '#1E2459',
         fontSize: 16,
         lineHeight: 22,
         fontWeight: 'bold',
@@ -278,7 +364,7 @@ const styles = StyleSheet.create({
 
     optionsBox: {
         width: 327,
-        backgroundColor: '#02557933',
+        backgroundColor: '#347cb4',
         borderRadius: 16,
         position: 'absolute',
         top: hp('17.75'),
@@ -323,16 +409,11 @@ const styles = StyleSheet.create({
         lineHeight: hp('2.34'),
         color: '#FFFFFF',
         fontWeight: '400',
-        width: hp('14.4'),
     },
 
-    switch: {
-        marginLeft: 'auto',
-        marginRight: 0,
-    },
     conta: {
         height: hp('100'),
-        backgroundColor: 'linear-gradient(180deg, rgba(3, 121, 171, 1) 0%, rgba(2, 85, 120, 1) 100%);',
+        backgroundColor: 'rgba(0,99,175,1)',
     },
     imagebox: {
         flexDirection: 'row',
@@ -357,5 +438,10 @@ const styles = StyleSheet.create({
         color: '#FFFFFF',
         fontWeight: '700',
         marginHorizontal: wp('24')
-    }
+    },
+    switch: {
+        flex: 1, 
+        flexDirection: 'row', 
+        justifyContent: 'flex-end'
+    },
 })
