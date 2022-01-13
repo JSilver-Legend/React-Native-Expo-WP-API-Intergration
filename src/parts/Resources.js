@@ -69,6 +69,14 @@ export default class Resources extends Component {
                         </View>
                     </TouchableOpacity>
                     <ScrollView style={styles.ScrollView}>
+                        {/* <View style={styles.imagetitlebox}>
+                            <Image
+                                resizeMode='contain'
+                                style={styles.image}
+                                source={require('../../assets/img/Publications-updated.jpg')}
+
+                            />
+                        </View> */}
                         <HTML 
                         source={{html: htmlString.split('/wp-content/').join('https://resembid.org/wp-content/')}}
                         tagsStyles = {{
@@ -121,6 +129,13 @@ const styles = StyleSheet.create({
         borderBottomWidth: 1,
         borderStyle: 'solid',
     },
+    imagetitlebox: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        width: wp('100'),
+        height: 40,
+        paddingBottom: 30,
+    }, 
     text: {
         color: '#FFFFFF',
         fontWeight: '700',
