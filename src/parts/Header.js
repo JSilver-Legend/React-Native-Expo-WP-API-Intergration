@@ -21,6 +21,18 @@ export default class Header extends Component {
             biodiversity: false,
             COVID: false,
             bi_calendar: false,
+            country_all: false,
+            country_anguilla: false,
+            country_bonaire: false,
+            country_british: false,
+            country_cayman: false,
+            country_curacao: false,
+            country_montserrat: false,
+            country_saba: false,
+            country_saint: false,
+            country_barthelemy: false,
+            country_eustatius: false,
+            country_turks: false,
         };
     }
 
@@ -178,8 +190,106 @@ export default class Header extends Component {
                                     </View>
                                 </View>
                                 <View style={styles.country}>
-                                    <Text style={ styles.label1 }>{"Country"}</Text>
-                                    <Text style={ styles.buttonTextMiddle }>{"Select one or more"}</Text>
+                                    <View style={styles.countryHeader}>
+                                        <Text style={ styles.label1 }>{"Country"}</Text>
+                                        <Text style={ styles.buttonTextMiddle }>{"Select one or more"}</Text>
+                                    </View>
+                                    <View style={styles.countryContent}>
+                                        <View style={styles.countryButtons}>
+                                            <TouchableOpacity
+                                                style={ styles.countryIcon}
+                                                onPress={()=> this.setState({ country_all: !this.state.country_all })}
+                                            >
+                                                <Text style={ [styles.countryCheckBox1, {display: this.state.country_all ? "none" : "flex"}] }>{"All"}</Text>
+                                                <Text style={ [styles.countryCheckBox2, {display: this.state.country_all ? "flex" : "none"}] }>{"All"}</Text>
+                                            </TouchableOpacity>
+                                            <TouchableOpacity
+                                                style={ styles.countryIcon}
+                                                onPress={()=> this.setState({ country_anguilla: !this.state.country_anguilla })}
+                                            >
+                                                <Text style={ [styles.countryCheckBox1, {display: this.state.country_anguilla ? "none" : "flex"}] }>{"Anguilla"}</Text>
+                                                <Text style={ [styles.countryCheckBox2, {display: this.state.country_anguilla ? "flex" : "none"}] }>{"Anguilla"}</Text>
+                                            </TouchableOpacity>
+                                            <TouchableOpacity
+                                                style={ styles.countryIcon}
+                                                onPress={()=> this.setState({ country_bonaire: !this.state.country_bonaire })}
+                                            >
+                                                <Text style={ [styles.countryCheckBox1, {display: this.state.country_bonaire ? "none" : "flex"}] }>{"Bonaire"}</Text>
+                                                <Text style={ [styles.countryCheckBox2, {display: this.state.country_bonaire ? "flex" : "none"}] }>{"Bonaire"}</Text>
+                                            </TouchableOpacity>
+                                        </View>
+                                        <View style={styles.countryButtons}>
+                                            <TouchableOpacity
+                                                style={ styles.countryIcon}
+                                                onPress={()=> this.setState({ country_all: !this.state.country_all })}
+                                            >
+                                                <Text style={ [styles.countryCheckBox1, {display: this.state.country_all ? "none" : "flex"}] }>{"British Virgin Island"}</Text>
+                                                <Text style={ [styles.countryCheckBox2, {display: this.state.country_all ? "flex" : "none"}] }>{"British Virgin Island"}</Text>
+                                            </TouchableOpacity>
+                                            <TouchableOpacity
+                                                style={ styles.countryIcon}
+                                                onPress={()=> this.setState({ country_anguilla: !this.state.country_anguilla })}
+                                            >
+                                                <Text style={ [styles.countryCheckBox1, {display: this.state.country_anguilla ? "none" : "flex"}] }>{"Cayman Island"}</Text>
+                                                <Text style={ [styles.countryCheckBox2, {display: this.state.country_anguilla ? "flex" : "none"}] }>{"Cayman Island"}</Text>
+                                            </TouchableOpacity>
+                                        </View>
+                                        <View style={styles.countryButtons}>
+                                            <TouchableOpacity
+                                                style={ styles.countryIcon}
+                                                onPress={()=> this.setState({ country_all: !this.state.country_all })}
+                                            >
+                                                <Text style={ [styles.countryCheckBox1, {display: this.state.country_all ? "none" : "flex"}] }>{"Curaçao"}</Text>
+                                                <Text style={ [styles.countryCheckBox2, {display: this.state.country_all ? "flex" : "none"}] }>{"Curaçao"}</Text>
+                                            </TouchableOpacity>
+                                            <TouchableOpacity
+                                                style={ styles.countryIcon}
+                                                onPress={()=> this.setState({ country_anguilla: !this.state.country_anguilla })}
+                                            >
+                                                <Text style={ [styles.countryCheckBox1, {display: this.state.country_anguilla ? "none" : "flex"}] }>{"Montserrat"}</Text>
+                                                <Text style={ [styles.countryCheckBox2, {display: this.state.country_anguilla ? "flex" : "none"}] }>{"Montserrat"}</Text>
+                                            </TouchableOpacity>
+                                            <TouchableOpacity
+                                                style={ styles.countryIcon}
+                                                onPress={()=> this.setState({ country_bonaire: !this.state.country_bonaire })}
+                                            >
+                                                <Text style={ [styles.countryCheckBox1, {display: this.state.country_bonaire ? "none" : "flex"}] }>{"Saba"}</Text>
+                                                <Text style={ [styles.countryCheckBox2, {display: this.state.country_bonaire ? "flex" : "none"}] }>{"Saba"}</Text>
+                                            </TouchableOpacity>
+                                        </View>
+                                        <View style={styles.countryButtons}>
+                                            <TouchableOpacity
+                                                style={ styles.countryIcon}
+                                                onPress={()=> this.setState({ country_all: !this.state.country_all })}
+                                            >
+                                                <Text style={ [styles.countryCheckBox1, {display: this.state.country_all ? "none" : "flex"}] }>{"Saint Barthélemy"}</Text>
+                                                <Text style={ [styles.countryCheckBox2, {display: this.state.country_all ? "flex" : "none"}] }>{"Saint Barthélemy"}</Text>
+                                            </TouchableOpacity>
+                                            <TouchableOpacity
+                                                style={ styles.countryIcon}
+                                                onPress={()=> this.setState({ country_anguilla: !this.state.country_anguilla })}
+                                            >
+                                                <Text style={ [styles.countryCheckBox1, {display: this.state.country_anguilla ? "none" : "flex"}] }>{"Sint Eustatius"}</Text>
+                                                <Text style={ [styles.countryCheckBox2, {display: this.state.country_anguilla ? "flex" : "none"}] }>{"Sint Eustatius"}</Text>
+                                            </TouchableOpacity>
+                                        </View>
+                                        <View style={styles.countryButtons}>
+                                            <TouchableOpacity
+                                                style={ styles.countryIcon}
+                                                onPress={()=> this.setState({ country_all: !this.state.country_all })}
+                                            >
+                                                <Text style={ [styles.countryCheckBox1, {display: this.state.country_all ? "none" : "flex"}] }>{"Sint Maarten"}</Text>
+                                                <Text style={ [styles.countryCheckBox2, {display: this.state.country_all ? "flex" : "none"}] }>{"Sint Maarten"}</Text>
+                                            </TouchableOpacity>
+                                            <TouchableOpacity
+                                                style={ styles.countryIcon}
+                                                onPress={()=> this.setState({ country_anguilla: !this.state.country_anguilla })}
+                                            >
+                                                <Text style={ [styles.countryCheckBox1, {display: this.state.country_anguilla ? "none" : "flex"}] }>{"Turks & Caicos Islands"}</Text>
+                                                <Text style={ [styles.countryCheckBox2, {display: this.state.country_anguilla ? "flex" : "none"}] }>{"Turks & Caicos Islands"}</Text>
+                                            </TouchableOpacity>
+                                        </View>
+                                    </View>
                                 </View>
                                 <View>
                                     <TouchableOpacity style={styles.buttonContent}>
@@ -247,7 +357,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         paddingTop: 5,
         color: '#D36477',
-        fontFamily: 'OpenSans',
+        // fontFamily: 'OpenSans',
         fontWeight: '600',
         fontSize: 12,
         lineHeight: 14
@@ -256,7 +366,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         paddingTop: 5,
         color: '#F09E48',
-        fontFamily: 'OpenSans',
+        // fontFamily: 'OpenSans',
         fontWeight: '600',
         fontSize: 12,
         lineHeight: 14
@@ -309,6 +419,49 @@ const styles = StyleSheet.create({
     },
     country: {
         paddingTop: 20,
+    },
+    countryHeader: {
+
+    },
+    countryContent: {
+        paddingTop: 20,
+        paddingBottom: 40
+    },
+    countryButtons: {
+        flexDirection: 'row',
+        paddingBottom: 8
+    },
+    countryIcon: {
+        height: 30,
+        paddingRight: 8,
+    },
+    countryCheckBox1: {
+        borderRadius: 4,
+        borderStyle: 'solid',
+        borderWidth: 1,
+        borderColor: '#cccccc',
+        backgroundColor: '#ffffff',
+        paddingHorizontal: 12,
+        paddingVertical: 8,
+        color: '#5E5E5E',
+        fontSize: 12,
+        // fontFamily: 'OpenSans',
+        fontWeight: '600',
+        lineHeight: 14
+    },
+    countryCheckBox2: {
+        borderRadius: 4,
+        borderStyle: 'solid',
+        borderWidth: 1,
+        borderColor: '#0063AF',
+        backgroundColor: '#0063AF',
+        paddingHorizontal: 12,
+        paddingVertical: 8,
+        color: '#ffffff',
+        fontSize: 12,
+        // fontFamily: 'OpenSans',
+        fontWeight: '600',
+        lineHeight: 14
     },
     bottombody: {
         width: '100%'
