@@ -33,7 +33,30 @@ export default class Header extends Component {
             country_barthelemy: false,
             country_eustatius: false,
             country_turks: false,
+            filtercount: 0
         };
+    }
+
+    reset  = () => {
+        this.setState({ all: false }),
+        this.setState({ resilience: false }),
+        this.setState({ resilience: false }),
+        this.setState({ sustainable: false }),
+        this.setState({ biodiversity: false }),
+        this.setState({ COVID: false }),
+        this.setState({ bi_calendar: false }),
+        this.setState({ country_all: false }),
+        this.setState({ country_anguilla: false }),
+        this.setState({ country_bonaire: false }),
+        this.setState({ country_british: false }),
+        this.setState({ country_cayman: false }),
+        this.setState({ country_curacao: false }),
+        this.setState({ country_montserrat: false }),
+        this.setState({ country_saint: false }),
+        this.setState({ country_barthelemy: false }),
+        this.setState({ country_eustatius: false }),
+        this.setState({ country_turks: false }),
+        this.setState({ filtercount: 0 })
     }
 
     render() {
@@ -78,12 +101,17 @@ export default class Header extends Component {
                     >
                         <View style={styles.bottombody}>
                             <View style={styles.bottomheader}>
-                                <TouchableOpacity>
+                                <TouchableOpacity
+                                    onPress={()=> this.reset()}>
                                     <Text style={ styles.buttonTextLight }>{"Reset"}</Text>
                                 </TouchableOpacity>
                                 <Text style={ styles.buttonTextMiddle }>{"Filter"}</Text>
-                                <TouchableOpacity>
-                                    <Text style={ styles.buttonTextLight }>{"close"}</Text>
+                                <TouchableOpacity
+                                    onPress={() => this.RBSheet.close()}>
+                                    <Image
+                                        style = { styles.closeButton}
+                                        source = { require ('../../assets/img/close.png') }
+                                    />
                                 </TouchableOpacity>
                             </View>
                             <View style={styles.content}>
@@ -96,7 +124,7 @@ export default class Header extends Component {
                                         <View style={styles.categoryButtons}>
                                             <TouchableOpacity
                                                 style={ styles.categoryIcon}
-                                                onPress={()=> this.setState({ all: !this.state.all })}
+                                                onPress={()=> {this.setState({ all: !this.state.all }, () => { this.state.all ? this.setState({ filtercount: this.state.filtercount+1 }) : this.setState({ filtercount: this.state.filtercount-1 })})}}
                                             >
                                                 <Image
                                                     style = { [styles.categoryIconSize, {display: this.state.all ? "none" : "flex"}] }
@@ -111,7 +139,7 @@ export default class Header extends Component {
                                             </TouchableOpacity>
                                             <TouchableOpacity
                                                 style={ styles.categoryIcon}
-                                                onPress={()=> this.setState({ resilience: !this.state.resilience })}
+                                                onPress={()=> this.setState({ resilience: !this.state.resilience }, () => { this.state.resilience ? this.setState({ filtercount: this.state.filtercount+1 }) : this.setState({ filtercount: this.state.filtercount-1 })})}
                                             >
                                                 <Image
                                                     style = { [styles.categoryIconSize, {display: this.state.resilience ? "none" : "flex"}] }
@@ -126,7 +154,7 @@ export default class Header extends Component {
                                             </TouchableOpacity>
                                             <TouchableOpacity
                                                 style={ styles.categoryIcon}
-                                                onPress={()=> this.setState({ sustainable: !this.state.sustainable })}
+                                                onPress={()=> this.setState({ sustainable: !this.state.sustainable }, () => { this.state.sustainable ? this.setState({ filtercount: this.state.filtercount+1 }) : this.setState({ filtercount: this.state.filtercount-1 })})}
                                             >
                                                 <Image
                                                     style = { [styles.categoryIconSize, {display: this.state.sustainable ? "none" : "flex"}] }
@@ -143,7 +171,7 @@ export default class Header extends Component {
                                         <View style={styles.categoryButtons}>
                                             <TouchableOpacity
                                                 style={ styles.categoryIcon}
-                                                onPress={()=> this.setState({ biodiversity: !this.state.biodiversity })}
+                                                onPress={()=> this.setState({ biodiversity: !this.state.biodiversity }, () => { this.state.biodiversity ? this.setState({ filtercount: this.state.filtercount+1 }) : this.setState({ filtercount: this.state.filtercount-1 })})}
                                             >
                                                 <Image
                                                     style = { [styles.categoryIconSize, {display: this.state.biodiversity ? "none" : "flex"}] }
@@ -158,7 +186,7 @@ export default class Header extends Component {
                                             </TouchableOpacity>
                                             <TouchableOpacity
                                                 style={ styles.categoryIcon}
-                                                onPress={()=> this.setState({ COVID: !this.state.COVID })}
+                                                onPress={()=> this.setState({ COVID: !this.state.COVID }, () => { this.state.COVID ? this.setState({ filtercount: this.state.filtercount+1 }) : this.setState({ filtercount: this.state.filtercount-1 })})}
                                             >
                                                 <Image
                                                     style = { [styles.categoryIconSize, {display: this.state.COVID ? "none" : "flex"}] }
@@ -173,7 +201,7 @@ export default class Header extends Component {
                                             </TouchableOpacity>
                                             <TouchableOpacity
                                                 style={ styles.categoryIcon}
-                                                onPress={()=> this.setState({ bi_calendar: !this.state.bi_calendar })}
+                                                onPress={()=> this.setState({ bi_calendar: !this.state.bi_calendar }, () => { this.state.bi_calendar ? this.setState({ filtercount: this.state.filtercount+1 }) : this.setState({ filtercount: this.state.filtercount-1 })})}
                                             >
                                                 <Image
                                                     style = { [styles.categoryIconSize, {display: this.state.bi_calendar ? "none" : "flex"}] }
@@ -198,21 +226,21 @@ export default class Header extends Component {
                                         <View style={styles.countryButtons}>
                                             <TouchableOpacity
                                                 style={ styles.countryIcon}
-                                                onPress={()=> this.setState({ country_all: !this.state.country_all })}
+                                                onPress={()=> this.setState({ country_all: !this.state.country_all }, () => { this.state.country_all ? this.setState({ filtercount: this.state.filtercount+1 }) : this.setState({ filtercount: this.state.filtercount-1 })})}
                                             >
                                                 <Text style={ [styles.countryCheckBox1, {display: this.state.country_all ? "none" : "flex"}] }>{"All"}</Text>
                                                 <Text style={ [styles.countryCheckBox2, {display: this.state.country_all ? "flex" : "none"}] }>{"All"}</Text>
                                             </TouchableOpacity>
                                             <TouchableOpacity
                                                 style={ styles.countryIcon}
-                                                onPress={()=> this.setState({ country_anguilla: !this.state.country_anguilla })}
+                                                onPress={()=> this.setState({ country_anguilla: !this.state.country_anguilla }, () => { this.state.country_anguilla ? this.setState({ filtercount: this.state.filtercount+1 }) : this.setState({ filtercount: this.state.filtercount-1 })})}
                                             >
                                                 <Text style={ [styles.countryCheckBox1, {display: this.state.country_anguilla ? "none" : "flex"}] }>{"Anguilla"}</Text>
                                                 <Text style={ [styles.countryCheckBox2, {display: this.state.country_anguilla ? "flex" : "none"}] }>{"Anguilla"}</Text>
                                             </TouchableOpacity>
                                             <TouchableOpacity
                                                 style={ styles.countryIcon}
-                                                onPress={()=> this.setState({ country_bonaire: !this.state.country_bonaire })}
+                                                onPress={()=> this.setState({ country_bonaire: !this.state.country_bonaire }, () => { this.state.country_bonaire ? this.setState({ filtercount: this.state.filtercount+1 }) : this.setState({ filtercount: this.state.filtercount-1 })})}
                                             >
                                                 <Text style={ [styles.countryCheckBox1, {display: this.state.country_bonaire ? "none" : "flex"}] }>{"Bonaire"}</Text>
                                                 <Text style={ [styles.countryCheckBox2, {display: this.state.country_bonaire ? "flex" : "none"}] }>{"Bonaire"}</Text>
@@ -221,79 +249,79 @@ export default class Header extends Component {
                                         <View style={styles.countryButtons}>
                                             <TouchableOpacity
                                                 style={ styles.countryIcon}
-                                                onPress={()=> this.setState({ country_all: !this.state.country_all })}
+                                                onPress={()=> this.setState({ country_british: !this.state.country_british }, () => { this.state.country_british ? this.setState({ filtercount: this.state.filtercount+1 }) : this.setState({ filtercount: this.state.filtercount-1 })})}
                                             >
-                                                <Text style={ [styles.countryCheckBox1, {display: this.state.country_all ? "none" : "flex"}] }>{"British Virgin Island"}</Text>
-                                                <Text style={ [styles.countryCheckBox2, {display: this.state.country_all ? "flex" : "none"}] }>{"British Virgin Island"}</Text>
+                                                <Text style={ [styles.countryCheckBox1, {display: this.state.country_british ? "none" : "flex"}] }>{"British Virgin Island"}</Text>
+                                                <Text style={ [styles.countryCheckBox2, {display: this.state.country_british ? "flex" : "none"}] }>{"British Virgin Island"}</Text>
                                             </TouchableOpacity>
                                             <TouchableOpacity
                                                 style={ styles.countryIcon}
-                                                onPress={()=> this.setState({ country_anguilla: !this.state.country_anguilla })}
+                                                onPress={()=> this.setState({ country_cayman: !this.state.country_cayman }, () => { this.state.country_cayman ? this.setState({ filtercount: this.state.filtercount+1 }) : this.setState({ filtercount: this.state.filtercount-1 })})}
                                             >
-                                                <Text style={ [styles.countryCheckBox1, {display: this.state.country_anguilla ? "none" : "flex"}] }>{"Cayman Island"}</Text>
-                                                <Text style={ [styles.countryCheckBox2, {display: this.state.country_anguilla ? "flex" : "none"}] }>{"Cayman Island"}</Text>
-                                            </TouchableOpacity>
-                                        </View>
-                                        <View style={styles.countryButtons}>
-                                            <TouchableOpacity
-                                                style={ styles.countryIcon}
-                                                onPress={()=> this.setState({ country_all: !this.state.country_all })}
-                                            >
-                                                <Text style={ [styles.countryCheckBox1, {display: this.state.country_all ? "none" : "flex"}] }>{"Curaçao"}</Text>
-                                                <Text style={ [styles.countryCheckBox2, {display: this.state.country_all ? "flex" : "none"}] }>{"Curaçao"}</Text>
-                                            </TouchableOpacity>
-                                            <TouchableOpacity
-                                                style={ styles.countryIcon}
-                                                onPress={()=> this.setState({ country_anguilla: !this.state.country_anguilla })}
-                                            >
-                                                <Text style={ [styles.countryCheckBox1, {display: this.state.country_anguilla ? "none" : "flex"}] }>{"Montserrat"}</Text>
-                                                <Text style={ [styles.countryCheckBox2, {display: this.state.country_anguilla ? "flex" : "none"}] }>{"Montserrat"}</Text>
-                                            </TouchableOpacity>
-                                            <TouchableOpacity
-                                                style={ styles.countryIcon}
-                                                onPress={()=> this.setState({ country_bonaire: !this.state.country_bonaire })}
-                                            >
-                                                <Text style={ [styles.countryCheckBox1, {display: this.state.country_bonaire ? "none" : "flex"}] }>{"Saba"}</Text>
-                                                <Text style={ [styles.countryCheckBox2, {display: this.state.country_bonaire ? "flex" : "none"}] }>{"Saba"}</Text>
+                                                <Text style={ [styles.countryCheckBox1, {display: this.state.country_cayman ? "none" : "flex"}] }>{"Cayman Island"}</Text>
+                                                <Text style={ [styles.countryCheckBox2, {display: this.state.country_cayman ? "flex" : "none"}] }>{"Cayman Island"}</Text>
                                             </TouchableOpacity>
                                         </View>
                                         <View style={styles.countryButtons}>
                                             <TouchableOpacity
                                                 style={ styles.countryIcon}
-                                                onPress={()=> this.setState({ country_all: !this.state.country_all })}
+                                                onPress={()=> this.setState({ country_curacao: !this.state.country_curacao }, () => { this.state.country_curacao ? this.setState({ filtercount: this.state.filtercount+1 }) : this.setState({ filtercount: this.state.filtercount-1 })})}
                                             >
-                                                <Text style={ [styles.countryCheckBox1, {display: this.state.country_all ? "none" : "flex"}] }>{"Saint Barthélemy"}</Text>
-                                                <Text style={ [styles.countryCheckBox2, {display: this.state.country_all ? "flex" : "none"}] }>{"Saint Barthélemy"}</Text>
+                                                <Text style={ [styles.countryCheckBox1, {display: this.state.country_curacao ? "none" : "flex"}] }>{"Curaçao"}</Text>
+                                                <Text style={ [styles.countryCheckBox2, {display: this.state.country_curacao ? "flex" : "none"}] }>{"Curaçao"}</Text>
                                             </TouchableOpacity>
                                             <TouchableOpacity
                                                 style={ styles.countryIcon}
-                                                onPress={()=> this.setState({ country_anguilla: !this.state.country_anguilla })}
+                                                onPress={()=> this.setState({ country_montserrat: !this.state.country_montserrat }, () => { this.state.country_montserrat ? this.setState({ filtercount: this.state.filtercount+1 }) : this.setState({ filtercount: this.state.filtercount-1 })})}
                                             >
-                                                <Text style={ [styles.countryCheckBox1, {display: this.state.country_anguilla ? "none" : "flex"}] }>{"Sint Eustatius"}</Text>
-                                                <Text style={ [styles.countryCheckBox2, {display: this.state.country_anguilla ? "flex" : "none"}] }>{"Sint Eustatius"}</Text>
+                                                <Text style={ [styles.countryCheckBox1, {display: this.state.country_montserrat ? "none" : "flex"}] }>{"Montserrat"}</Text>
+                                                <Text style={ [styles.countryCheckBox2, {display: this.state.country_montserrat ? "flex" : "none"}] }>{"Montserrat"}</Text>
+                                            </TouchableOpacity>
+                                            <TouchableOpacity
+                                                style={ styles.countryIcon}
+                                                onPress={()=> this.setState({ country_saba: !this.state.country_saba }, () => { this.state.country_saba ? this.setState({ filtercount: this.state.filtercount+1 }) : this.setState({ filtercount: this.state.filtercount-1 })})}
+                                            >
+                                                <Text style={ [styles.countryCheckBox1, {display: this.state.country_saba ? "none" : "flex"}] }>{"Saba"}</Text>
+                                                <Text style={ [styles.countryCheckBox2, {display: this.state.country_saba ? "flex" : "none"}] }>{"Saba"}</Text>
                                             </TouchableOpacity>
                                         </View>
                                         <View style={styles.countryButtons}>
                                             <TouchableOpacity
                                                 style={ styles.countryIcon}
-                                                onPress={()=> this.setState({ country_all: !this.state.country_all })}
+                                                onPress={()=> this.setState({ country_saint: !this.state.country_saint }, () => { this.state.country_saint ? this.setState({ filtercount: this.state.filtercount+1 }) : this.setState({ filtercount: this.state.filtercount-1 })})}
                                             >
-                                                <Text style={ [styles.countryCheckBox1, {display: this.state.country_all ? "none" : "flex"}] }>{"Sint Maarten"}</Text>
-                                                <Text style={ [styles.countryCheckBox2, {display: this.state.country_all ? "flex" : "none"}] }>{"Sint Maarten"}</Text>
+                                                <Text style={ [styles.countryCheckBox1, {display: this.state.country_saint ? "none" : "flex"}] }>{"Saint Barthélemy"}</Text>
+                                                <Text style={ [styles.countryCheckBox2, {display: this.state.country_saint ? "flex" : "none"}] }>{"Saint Barthélemy"}</Text>
                                             </TouchableOpacity>
                                             <TouchableOpacity
                                                 style={ styles.countryIcon}
-                                                onPress={()=> this.setState({ country_anguilla: !this.state.country_anguilla })}
+                                                onPress={()=> this.setState({ country_eustatius: !this.state.country_eustatius }, () => { this.state.country_eustatius ? this.setState({ filtercount: this.state.filtercount+1 }) : this.setState({ filtercount: this.state.filtercount-1 })})}
                                             >
-                                                <Text style={ [styles.countryCheckBox1, {display: this.state.country_anguilla ? "none" : "flex"}] }>{"Turks & Caicos Islands"}</Text>
-                                                <Text style={ [styles.countryCheckBox2, {display: this.state.country_anguilla ? "flex" : "none"}] }>{"Turks & Caicos Islands"}</Text>
+                                                <Text style={ [styles.countryCheckBox1, {display: this.state.country_eustatius ? "none" : "flex"}] }>{"Sint Eustatius"}</Text>
+                                                <Text style={ [styles.countryCheckBox2, {display: this.state.country_eustatius ? "flex" : "none"}] }>{"Sint Eustatius"}</Text>
+                                            </TouchableOpacity>
+                                        </View>
+                                        <View style={styles.countryButtons}>
+                                            <TouchableOpacity
+                                                style={ styles.countryIcon}
+                                                onPress={()=> this.setState({ country_maarten: !this.state.country_maarten }, () => { this.state.country_maarten ? this.setState({ filtercount: this.state.filtercount+1 }) : this.setState({ filtercount: this.state.filtercount-1 })})}
+                                            >
+                                                <Text style={ [styles.countryCheckBox1, {display: this.state.country_maarten ? "none" : "flex"}] }>{"Sint Maarten"}</Text>
+                                                <Text style={ [styles.countryCheckBox2, {display: this.state.country_maarten ? "flex" : "none"}] }>{"Sint Maarten"}</Text>
+                                            </TouchableOpacity>
+                                            <TouchableOpacity
+                                                style={ styles.countryIcon}
+                                                onPress={()=> this.setState({ country_turks: !this.state.country_turks }, () => { this.state.country_turks ? this.setState({ filtercount: this.state.filtercount+1 }) : this.setState({ filtercount: this.state.filtercount-1 })})}
+                                            >
+                                                <Text style={ [styles.countryCheckBox1, {display: this.state.country_turks ? "none" : "flex"}] }>{"Turks & Caicos Islands"}</Text>
+                                                <Text style={ [styles.countryCheckBox2, {display: this.state.country_turks ? "flex" : "none"}] }>{"Turks & Caicos Islands"}</Text>
                                             </TouchableOpacity>
                                         </View>
                                     </View>
                                 </View>
                                 <View>
                                     <TouchableOpacity style={styles.buttonContent}>
-                                        <Text style={ styles.buttonLabel }>{"Apply filters( )"}</Text>
+                                        <Text style={ styles.buttonLabel }>{`Apply filters(${this.state.filtercount})`}</Text>
                                     </TouchableOpacity>
                                 </View>
                             </View>
@@ -370,6 +398,10 @@ const styles = StyleSheet.create({
         fontWeight: '600',
         fontSize: 12,
         lineHeight: 14
+    },
+    closeButton: {
+        width: 15,
+        height: 15
     },
     categoryHeader: {
 
